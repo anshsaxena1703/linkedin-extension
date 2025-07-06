@@ -6,11 +6,11 @@ export const useChromeStorage = () => {
         },
 
         getInfo: async () => {
-            const resumeLink = await chrome.storage.local.get(resumeLink);
-            const emailTemplate = await chrome.storage.local.get(emailTemplate);
+            const resumeLinkObj = await chrome.storage.local.get('resumeLink');
+            const emailTemplateObj = await chrome.storage.local.get('emailTemplate');
             return {
-                resumeLink: resumeLink.resumeLink || '',
-                emailTemplate: emailTemplate.emailTemplate || ''
+                resumeLink: resumeLinkObj.resumeLink || '',
+                emailTemplate: emailTemplateObj.emailTemplate || ''
             };
         }
     }
