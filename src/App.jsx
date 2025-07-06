@@ -17,7 +17,7 @@ function App() {
   }, []);
 
   return (
-    infoStored ? <MailSender/> : <InformationSetter setInfoStored={setInfoStored} />
+    infoStored ? <MailSender setInfoStored={setInfoStored}/> : <InformationSetter setInfoStored={setInfoStored} />
   );
 }
 

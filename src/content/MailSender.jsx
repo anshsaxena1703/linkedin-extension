@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 // import {useChromeStorage} from '../hooks/useChromeStorage'
 
-function MailSender() {
+MailSender.propTypes = {
+  setInfoStored: PropTypes.func.isRequired,
+}
+
+function MailSender({setInfoStored}) {
   const [position, setPosition] = useState('');
   const [organisation, setOrganisation] = useState(''); 
 
@@ -11,10 +16,10 @@ function MailSender() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <form
         onSubmit={handleSubmit}
-        className="bg-white pb-32 pt-4 px-8 rounded shadow-md w-full"
+        className="bg-white py-8 px-8 rounded shadow-md w-full"
         style={{ minWidth: 300 }}
       >
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Send Mail</h2>
@@ -52,6 +57,17 @@ function MailSender() {
         >
           Send Mail
         </button>
+        <div className='mt-4'>
+        <button
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+          onClick={(e) => {
+            e.preventDefault();
+            setInfoStored(false);
+          }}
+        >
+          Set resume link and email template
+        </button>
+        </div>
       </form>
     </div>
   );
